@@ -1,178 +1,253 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thanksgiving Service 2026 - Hon. Yonani</title>
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-  <link rel="stylesheet" href="style.css">
-</head>
+body {
+  background: #f7f7fb;
+  color: #222;
+  line-height: 1.6;
+}
 
-<body>
+/* ================= HERO ================= */
+.hero {
+  background: linear-gradient(rgba(40, 0, 60, 0.75), rgba(40, 0, 60, 0.75)),
+              url('church-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+}
 
-<!-- ================= HERO ================= -->
-<section class="hero">
+.hero-content {
+  max-width: 800px;
+}
 
-    <!-- Content -->
-    <div class="hero-content">
+.hero-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid gold;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
 
-        <img src="yonan.jpg" alt="Hon. Yonani" class="hero-img">
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
 
-        <h1>THANKSGIVING SERVICE 2026</h1>
+.sub-text {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
 
-        <p class="sub-text">28th June 2026 • Nkogoro Archdeaconry Church</p>
-        <p class="sub-text">10:00 AM • Sunday</p>
+.hero-buttons {
+  margin-top: 20px;
+}
 
-        <div class="hero-buttons">
-            <button class="btn">View Details</button>
-            <button class="btn-outline">Contact Organizers</button>
-        </div>
+.btn, .btn-outline {
+  padding: 10px 20px;
+  border-radius: 30px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
 
-    </div>
+.btn {
+  background: gold;
+  color: #000;
+  border: none;
+}
 
-</section>
+.btn:hover {
+  background: #ffcc00;
+  transform: scale(1.05);
+}
 
+.btn-outline {
+  border: 2px solid gold;
+  color: gold;
+  background: transparent;
+}
 
-<!-- ================= COUNTDOWN ================= -->
-<section class="countdown-section">
-  <h2>Countdown to Event</h2>
+.btn-outline:hover {
+  background: gold;
+  color: #000;
+}
 
-  <div class="countdown">
-    <div><span id="days">00</span><p>Days</p></div>
-    <div><span id="hours">00</span><p>Hours</p></div>
-    <div><span id="minutes">00</span><p>Minutes</p></div>
-    <div><span id="seconds">00</span><p>Seconds</p></div>
-  </div>
-</section>
+/* ================= SECTION GENERAL ================= */
+section {
+  padding: 60px 20px;
+}
 
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #3b0a45;
+}
 
-<!-- ================= FLYER ================= -->
-<section class="flyer">
-  <h2>Official Event Flyer</h2>
+/* ================= COUNTDOWN ================= */
+.countdown-section {
+  background: #fff;
+}
 
-  <div class="flyer-box">
-    <img src="flyer.jpeg" alt="Thanksgiving Flyer">
-  </div>
-</section>
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
+.countdown div {
+  background: #3b0a45;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 100px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
-<!-- ================= ABOUT ================= -->
-<section class="about">
+.countdown span {
+  font-size: 2rem;
+  font-weight: bold;
+}
 
-  <h2>About Hon. Muhwezi Yonani</h2>
+/* ================= FLYER ================= */
+.flyer-box {
+  display: flex;
+  justify-content: center;
+}
 
-  <div class="about-container">
+.flyer-box img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
 
-    <img src="yonan.jpg" alt="Hon. Yonani">
+/* ================= ABOUT ================= */
+.about {
+  background: #f3f0f8;
+}
 
-    <div>
-      <p>
-        Hon. Muhwezi Yonani is the District Councillor for Kamwenge Sub-county and Minister of Works and Production for Kamwenge District.
-        He works closely with district leadership, LC5, religious leaders, and communities to promote development and unity.
-      </p>
+.about-container {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  flex-wrap: wrap;
+}
 
-      <p>
-        He is a committed, hardworking, friendly, and collaborative leader serving under the National Resistance Movement (NRM).
-      </p>
-    </div>
+.about-container img {
+  width: 250px;
+  height: 250px;
+  border-radius: 15px;
+  object-fit: cover;
+  border: 4px solid gold;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
 
-  </div>
+.about-container p {
+  max-width: 600px;
+  font-size: 1.05rem;
+}
 
-</section>
+/* ================= EVENT CARDS ================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
 
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  border-top: 4px solid gold;
+  transition: 0.3s;
+}
 
-<!-- ================= EVENT DETAILS ================= -->
-<section class="event-details">
+.card:hover {
+  transform: translateY(-5px);
+}
 
-  <h2>Event Details</h2>
+/* ================= INVITATION ================= */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
 
-  <div class="cards">
+.tags span {
+  background: #3b0a45;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
 
-    <div class="card">
-      <h3>Date</h3>
-      <p>28 June 2026 (Sunday)</p>
-    </div>
+/* ================= WHATSAPP ================= */
+.whatsapp {
+  background: #e9ffe9;
+  text-align: center;
+}
 
-    <div class="card">
-      <h3>Venue</h3>
-      <p>Nkogoro Archdeaconry Church</p>
-    </div>
+.whatsapp .btn {
+  margin-top: 15px;
+}
 
-    <div class="card">
-      <h3>Time</h3>
-      <p>10:00 AM</p>
-    </div>
+/* ================= CONTACT ================= */
+.contact-box {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
 
-    <div class="card">
-      <h3>Theme</h3>
-      <p>Giving Thanks to God and Working Together for Development and Transformation of Kamwenge District.</p>
-    </div>
+.note {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
+}
 
-  </div>
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
 
-</section>
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
 
-
-<!-- ================= INVITATION ================= -->
-<section class="invitation">
-
-  <h2>Who Is Invited</h2>
-
-  <div class="tags">
-    <span>Religious leaders</span>
-    <span>Cultural leaders</span>
-    <span>Political leaders</span>
-    <span>District leaders</span>
-    <span>Youth</span>
-    <span>Women</span>
-    <span>Elders</span>
-    <span>Persons with disabilities</span>
-    <span>Development partners</span>
-    <span>Business community</span>
-    <span>Friends & well-wishers</span>
-  </div>
-
-</section>
-
-
-<!-- ================= WHATSAPP ================= -->
-<section class="whatsapp">
-
-  <h2>Mobilisation WhatsApp Group</h2>
-
-  <p>
-    Join the official mobilisation team for updates, announcements, and preparations for the Thanksgiving Service 2026.
-  </p>
-
-  <a class="btn" href="https://chat.whatsapp.com/Ls8ThvbfxdF9GIaLmarSMp" target="_blank">
-    Join WhatsApp Group
-  </a>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-<section class="contact">
-
-  <h2>Contact Organizing Team</h2>
-
-  <div class="contact-box">
-
-    <p><strong>Phone:</strong> +256 777 145190</p>
-    <p><strong>Organized by:</strong> Hon. Muhwezi Yonani</p>
-    <p><strong>Powered by:</strong> Eng. Amiim Tumwekwase Technologies</p>
-
-    <p class="note">
-      For invitations, logistics, and participation, contact the organizing committee early.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- ================= SCRIPTS ================= -->
-<script src="script.js"></script>
-
-</body>
-</html>
+  .hero-img {
+    width: 140px;
+    height: 140px;
+  }
+}
