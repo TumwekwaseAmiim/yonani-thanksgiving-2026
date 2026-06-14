@@ -23,19 +23,23 @@
         <p class="sub-text">10:00 AM • Sunday</p>
 
         <div class="hero-buttons">
-            <button class="btn">View Details</button>
-            <button class="btn-outline">Contact Organizers</button>
+            <button class="btn" onclick="document.querySelector('.event-details').scrollIntoView({behavior:'smooth'})">
+              View Details
+            </button>
+
+            <button class="btn-outline" onclick="document.querySelector('.contact').scrollIntoView({behavior:'smooth'})">
+              Contact Organizers
+            </button>
         </div>
 
-        <!-- ================= SHARE BUTTON (NEW) ================= -->
+        <!-- ================= SHARE BUTTON ================= -->
         <div class="share-section">
-            <button class="btn" onclick="shareSite()">Share This Event</button>
+            <button class="btn" onclick="shareSite()">📢 Share This Event</button>
         </div>
 
     </div>
 
 </section>
-
 
 <!-- ================= COUNTDOWN ================= -->
 <section class="countdown-section">
@@ -49,7 +53,6 @@
   </div>
 </section>
 
-
 <!-- ================= FLYER ================= -->
 <section class="flyer">
   <h2>Official Event Flyer</h2>
@@ -58,7 +61,6 @@
     <img src="flyer.jpeg" alt="Thanksgiving Flyer">
   </div>
 </section>
-
 
 <!-- ================= ABOUT ================= -->
 <section class="about">
@@ -83,7 +85,6 @@
   </div>
 
 </section>
-
 
 <!-- ================= EVENT DETAILS ================= -->
 <section class="event-details">
@@ -116,7 +117,6 @@
 
 </section>
 
-
 <!-- ================= INVITATION ================= -->
 <section class="invitation">
 
@@ -138,7 +138,6 @@
 
 </section>
 
-
 <!-- ================= WHATSAPP ================= -->
 <section class="whatsapp">
 
@@ -153,7 +152,6 @@
   </a>
 
 </section>
-
 
 <!-- ================= CONTACT ================= -->
 <section class="contact">
@@ -173,7 +171,6 @@
   </div>
 
 </section>
-
 
 <!-- ================= SCRIPTS ================= -->
 <script src="script.js"></script>

@@ -1,6 +1,6 @@
 
 // ===============================
-// THANKSGIVING SERVICE 2026 - FINAL FIXED SCRIPT
+// THANKSGIVING SERVICE 2026 - FINAL CLEAN SCRIPT
 // ===============================
 
 const eventDate = new Date("June 28, 2026 10:00:00").getTime();
@@ -19,12 +19,15 @@ function showToast(message) {
 
 /* ================= COUNTDOWN ================= */
 function updateCountdown() {
-  const now = new Date().getTime();
+  const now = Date.now();
   const distance = eventDate - now;
 
+  const countdownBox = document.querySelector(".countdown");
+
+  if (!countdownBox) return;
+
   if (distance <= 0) {
-    document.querySelector(".countdown").innerHTML =
-      "<h2>🎉 Event Started!</h2>";
+    countdownBox.innerHTML = "<h2>🎉 Event Started!</h2>";
     return;
   }
 
@@ -44,7 +47,7 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-/* ================= CHAT ================= */
+/* ================= CHAT SYSTEM ================= */
 const chatBox = document.getElementById("chatBox");
 const input = document.getElementById("userInput");
 
@@ -83,35 +86,45 @@ function getSmartReply(msg) {
 }
 
 function sendMessage() {
-  if (!input || !chatBox) return;
+  if (!chatBox || !input) return;
 
   const message = input.value.trim();
   if (!message) return;
 
-  chatBox.innerHTML += `<div><b>You:</b> ${message}</div>`;
+  chatBox.innerHTML += `<div class="chat user"><b>You:</b> ${message}</div>`;
   input.value = "";
-  saveChat();
 
   const typing = document.createElement("div");
+  typing.className = "chat bot";
   typing.innerHTML = "<em>AI is typing...</em>";
   chatBox.appendChild(typing);
+
+  chatBox.scrollTop = chatBox.scrollHeight;
 
   setTimeout(() => {
     typing.innerHTML = `<b>AI:</b> ${getSmartReply(message)}`;
     saveChat();
+    chatBox.scrollTop = chatBox.scrollHeight;
   }, 1000);
+
+  saveChat();
 }
 
-/* ================= BUTTON FIX ================= */
+/* ================= SMOOTH BUTTONS ================= */
 document.addEventListener("DOMContentLoaded", () => {
   loadChat();
 
-  document.querySelectorAll(".btn")[0]?.addEventListener("click", () => {
-    document.querySelector(".event-details")?.scrollIntoView({ behavior: "smooth" });
+  const viewBtn = document.querySelector(".btn");
+  const contactBtn = document.querySelector(".btn-outline");
+
+  viewBtn?.addEventListener("click", () => {
+    document.querySelector(".event-details")
+      ?.scrollIntoView({ behavior: "smooth" });
   });
 
-  document.querySelector(".btn-outline")?.addEventListener("click", () => {
-    document.querySelector(".contact")?.scrollIntoView({ behavior: "smooth" });
+  contactBtn?.addEventListener("click", () => {
+    document.querySelector(".contact")
+      ?.scrollIntoView({ behavior: "smooth" });
   });
 });
 
@@ -136,17 +149,20 @@ window.addEventListener("scroll", () => {
   topBtn.style.display = window.scrollY > 300 ? "block" : "none";
 });
 
-/* ================= SHARE BUTTON (NEW) ================= */
+/* ================= SHARE SYSTEM (UPGRADED) ================= */
 function shareSite() {
-  const data = {
-    title: "Thanksgiving Service 2026 - Hon. Yonani",
-    text: "Join us for Thanksgiving Service 2026 🙏",
-    url: window.location.href
-  };
+  const url = window.location.href;
+
+  const text = "🎉 Join Thanksgiving Service 2026 - Hon. Yonani 🙏";
 
   if (navigator.share) {
-    navigator.share(data);
+    navigator.share({
+      title: "Thanksgiving Service 2026",
+      text: text,
+      url: url
+    });
   } else {
-    alert("Copy link: " + window.location.href);
+    const whatsapp = `https://wa.me/?text=${encodeURIComponent(text + " " + url)}`;
+    window.open(whatsapp, "_blank");
   }
 }
