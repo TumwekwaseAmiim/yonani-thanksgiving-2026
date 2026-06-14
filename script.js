@@ -1,6 +1,5 @@
-
 // ===============================
-// THANKSGIVING SERVICE 2026 - FINAL CLEAN SCRIPT
+// THANKSGIVING SERVICE 2026 - FINAL STABLE SCRIPT
 // ===============================
 
 const eventDate = new Date("June 28, 2026 10:00:00").getTime();
@@ -23,7 +22,6 @@ function updateCountdown() {
   const distance = eventDate - now;
 
   const countdownBox = document.querySelector(".countdown");
-
   if (!countdownBox) return;
 
   if (distance <= 0) {
@@ -110,9 +108,14 @@ function sendMessage() {
   saveChat();
 }
 
-/* ================= SMOOTH BUTTONS ================= */
+/* ================= SAFE INIT ================= */
 document.addEventListener("DOMContentLoaded", () => {
   loadChat();
+
+  // ⭐ IMPORTANT FIX: SHOW EVERYTHING ON LOAD (fix white screen)
+  document.querySelectorAll("section").forEach(sec => {
+    sec.classList.add("show");
+  });
 
   const viewBtn = document.querySelector(".btn");
   const contactBtn = document.querySelector(".btn-outline");
@@ -149,10 +152,9 @@ window.addEventListener("scroll", () => {
   topBtn.style.display = window.scrollY > 300 ? "block" : "none";
 });
 
-/* ================= SHARE SYSTEM (UPGRADED) ================= */
+/* ================= SHARE SYSTEM ================= */
 function shareSite() {
   const url = window.location.href;
-
   const text = "🎉 Join Thanksgiving Service 2026 - Hon. Yonani 🙏";
 
   if (navigator.share) {
